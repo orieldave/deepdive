@@ -13,6 +13,10 @@ object FactorFunctionParser extends RegexParsers with Logging {
     ImplyFactorFunction(varList)
   }
 
+  def implyFactorFunction2 = ("Imply2" | "IMPLY2") ~> "(" ~> rep1sep(factorVariable, ",") <~ ")" ^^ { varList =>
+    ImplyFactorFunction2(varList)
+  }
+
   def orFactorFunction = ("Or" | "OR") ~> "(" ~> rep1sep(factorVariable, ",") <~ ")" ^^ { varList =>
     OrFactorFunction(varList)
   }
@@ -66,6 +70,6 @@ object FactorFunctionParser extends RegexParsers with Logging {
 
   def factorFunc = implyFactorFunction | orFactorFunction | andFactorFunction |
     equalFactorFunction | isTrueFactorFunction | xorFactorFunction | multinomialFactorFunction |
-    linearFactorFunction | ratioFactorFunction | logicalFactorFunction
+    linearFactorFunction | ratioFactorFunction | logicalFactorFunction | implyFactorFunction2
 
 }

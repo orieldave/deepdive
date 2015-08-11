@@ -62,6 +62,7 @@ object InferenceNamespace {
       case "LinearFactorFunction" => 7
       case "RatioFactorFunction" => 8
       case "LogicalFactorFunction" => 9
+      case "ImplyFactorFunction2" => 11
     }
   }
 

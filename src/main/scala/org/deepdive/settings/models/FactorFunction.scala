@@ -16,6 +16,11 @@ case class ImplyFactorFunction(variables: Seq[FactorFunctionVariable]) extends F
   override def variableDataType = "Boolean"
 }
 
+/* A factor function of fom A and B and C ... -> Z, NOTE this function has -1, 0, 1 in its truth table */
+case class ImplyFactorFunction2(variables: Seq[FactorFunctionVariable]) extends FactorFunction {
+  override def variableDataType = "Boolean"
+}
+
 /* A factor function describing A or B or C ... */
 case class OrFactorFunction(variables: Seq[FactorFunctionVariable]) extends FactorFunction {
   override def variableDataType = "Boolean"
