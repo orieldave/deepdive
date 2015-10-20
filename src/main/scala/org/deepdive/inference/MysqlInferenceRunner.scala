@@ -195,7 +195,7 @@ trait MysqlInferenceRunnerComponent extends SQLInferenceRunnerComponent {
       log.debug("weight variables: ${factorDesc.weight.variables}")
       weightVariables.foreach( v => {
         val colType = checkColumnType(queryTable, v)
-        if (colType.equals("text") || colType.equals("blob")) {
+        if (colType.equals("text") || colType.equals("blob") || colType.equals("varchar")) {
           // create a partial index
           execute(s"CREATE INDEX ${queryTable}_${v}_idx ON ${queryTable}(${v}(255))")
         } else {
